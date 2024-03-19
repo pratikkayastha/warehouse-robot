@@ -85,7 +85,7 @@ Example
 
     // Move the robot to center of warehouse
 
-cont finalLocation: RobotCoordinate = warehouse.moveRobot('N E N E N E N E)
+    const finalLocation: RobotCoordinate = warehouse.moveRobot('N E N E N E N E)
 
     // finalLocation will be { x: 4, y: 4 }
 

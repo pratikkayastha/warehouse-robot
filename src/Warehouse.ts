@@ -20,7 +20,6 @@ export default class Warehouse {
   moveRobot(movesStr: string): RobotCoordinate {
     const moves = movesStr.split(' ')
     const updatedLocation: RobotCoordinate = this.calculateFinalPosition(moves)
-    this.validateCoordinate(updatedLocation)
 
     this.robot = updatedLocation
 
@@ -35,6 +34,8 @@ export default class Warehouse {
       const moveCommand: RobotCoordinate = this.calculateMoveDirection(move)
       calculatedCoordinate.x = calculatedCoordinate.x + moveCommand.x
       calculatedCoordinate.y = calculatedCoordinate.y + moveCommand.y
+
+      this.validateMove(calculatedCoordinate)
     })
 
     return calculatedCoordinate
@@ -57,7 +58,7 @@ export default class Warehouse {
     }
   }
 
-  private validateCoordinate(coordinate: RobotCoordinate): void {
+  private validateMove(coordinate: RobotCoordinate): void {
     if (
       coordinate.x < 0 ||
       coordinate.x >= this.width ||

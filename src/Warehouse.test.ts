@@ -47,7 +47,7 @@ describe('Robot test', () => {
   })
 
   it('should throw error when invalid move command is provided', () => {
-    expect(() => new Warehouse(10, 10).moveRobot('S ')).toThrow(
+    expect(() => new Warehouse(10, 10).moveRobot('N ')).toThrow(
       'Invalid move command: move commands should ne N, W, E and S.',
     )
     expect(() => new Warehouse(10, 10).moveRobot('')).toThrow(
